@@ -8,8 +8,8 @@ Concretely the goal is to make your device sleep between send intervals.
 Since energy, and regulations, require us to reduce our communication, the server will now not respond with what you need to measure every time. Only when it wants you to chance sensor. That means you have to remember the last sensor you used.
 
 In addition to the sensor, the server also sends two numbers:
-1.  An interval. This you should use to filter your measurements, such that you dont send data that falls within the previous sent measurement +- interval.
-2.  Seconds until next measurement. We want the next measurement x seconds from now.
+1.  A measurement interval. This you should use to filter your measurements, such that you dont send data that falls within the previous sent measurement +- interval.
+2.  Seconds until next measurement. We want the next measurement x seconds from now. If this measurement is less than the interval away, then you shouldn't send anything. However, if the measurement falls outside the last measurement + - the interval, then we want an update.
 
 An example:
 
@@ -44,7 +44,7 @@ An example:
 
 ```
 
-As last time, I will run the 
+
 
 ## Notes
 There are 2 forms of sleep. Light and deep sleep.
